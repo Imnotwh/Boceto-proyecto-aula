@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar/index.global.min.js"></script>
+<title>Automoatizacion de sistema de riego</title>
+<style>
+/* MENU*/
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+/*AQUI TERMINA PARTE DEL MENU*/
+
+h1,h2,p,#components, #sub{
+    text-align: center;
+    align-content: center;
+}
+
+body {
+    background-image: url(https://image.slidesdocs.com/responsive-images/background/leaves-green-nature-water-blooming-beautiful-powerpoint-background_82e92c9873__960_540.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+#header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+#components{
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+}
+
+#footer {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 10px;} 
+
+
+
+
+#diagrama {
+  width: 30%;
+  height: 15%;
+}
+ul {
+    margin: 0; 
+    padding: 0;
+    padding-left: 0%; 
+    list-style-position: outside; 
+    list-style-type: disc; 
+    text-align: left; 
+    line-height: 1.5; 
+    font-size: 16px; 
+}
+
+li {
+    margin: 0; 
+    padding: 0; 
+    line-height: 1.5; 
+    font-size: 16px; 
+    color: #333; 
+
+}
+
+#code{
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto; 
+    white-space: pre-wrap; 
+    font-size: 14px; 
+    text-align: center;
+}
+
+
+p {
+    margin: 10px 0;
+    line-height: 1.6; 
+    font-size: 16px; 
+    text-align: center;
+}
+
+
+input, select, button {
+      margin: 10px 0;
+      padding: 8px;
+      font-size: 16px;
+    }
+    #calendar {
+      margin-top: 30px;
+      max-width: 900px;
+    }
+
+     .descripcion {
+      background: #f0f0f0;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-left: 4px solid #00a651;
+    }
+
+#sub{
+    font-family: Arial, sans-serif;
+}    
+
+</style>
+</head>
+<body>
+<!-- MENU -->
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="services.html" target="iframe_a">Proyecto</a>
+  <a href="about.html" target="iframe_a">Cactus</a>
+  <a href="Tomate.html" target="iframe_a">Tomate</a>
+  <a href="Albahaca.html" target="iframe_a">Albahaca</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰</button>  
+  <h2>Si necesitas mas informacion presiona el boton de arriba a la izquierda y se desplegara la informacion en el espacio siguiente:</h2>
+
+  <iframe src="" name="iframe_a" title="Iframe Example" frameborder="0"></iframe>
+
+  <p><a href="https://www.w3schools.com" target="iframe_a">W3Schools.com</a></p>  
+</div>
+<!-- AQUI TERMINA PARTE DEL MENU -->
+ <h1 id="auto">Automatizacion de sistema de riego para plantas</h1>
+    <main>
+        <section id="introduction">
+            <h2>Introducción</h2>
+            <p>Este proyecto tiene como objetivo automatizar un sistema de riego utilizando Arduino y sensores de humedad. 
+                Para que sea efectivo, el sistema debe regar las plantas cuando el sensor de humedad detecte que el suelo está seco.
+                La bomba de agua se activará a través de un relé, permitiendo que el agua fluya hacia las plantas hasta que el sensor indique que el suelo ha alcanzado un nivel adecuado de humedad.
+            </p>
+        </section>
+
+        <section id="components">
+            <h2>Componentes necesarios</h2>
+            <ul>
+                <li>Arduino</li>
+                <li>Sensor de humedad del suelo</li>
+                <li>Bomba de agua</li>
+                <li>Relé</li>
+                <li>Cables y protoboard</li>
+            </ul>
+        </section>
+          <section>
+              <p id="sub"> Áreas Verdes Urbanas</p>
+
+              <p> Los espacios verdes urbanos se clasifican por tamaño, caracteristicas espaciales, ubicaciones geograficas, usos, funciones, propositos de servicio,
+                instalaciones y propiedad. Las areas verdes publicas incluyen parques, plazas y jardines entre otros.
+                Con la fundacion de la Ciudad de Mexico en 1521, en ese entonces llamada Mexico-Tenochtitlan, la transformacion del medio geogrfico y urbano tuvo una profunda influencia en el diseñado
+                de las areas verdes y en el manejo de vegetacion natural del entorno </p>
+
+          </section>
+      <section id="code">
+            <h2>Código de Arduino</h2>
+            
+        <pre>#include>LiquidCristal.h>
+            int rs = 12;              
+            int e= 11;
+            int d4 = 5; 
+            int d5 = 4;
+            int d6 = 3;
+            int d7 = 2;
+             LiquidCrystal lcd(rs, e, d4, d5, d6, d7);
+
+              void set up(){
+                //put your setup code here, to run once://
+                serial.begin(9600);
+                pin mode (8, OUTPUT); 
+                lcd.begin(16, 2);
+              }
+              <p>Esta es una pequeña parte del codigo del arduino</p>
+              <code>
+                  <section id="hola">
+                <p>Sistema de Riego y captacion pluvial </p>
+                    <p>El articulo 109 del Reglamento de la construcciones del distrito </p>
+                    </section>
+
+ Selección de planta 
+  <label for="plant">Selecciona una planta:</label><br>
+  <select id="plant" onchange="mostrarDescripcion()">
+    <option value="">-- Elige una planta --</option>
+    <option value="tomate">Tomate</option>
+    <option value="cactus">Cactus</option>
+    <option value="albahaca">Albahaca</option>
+  </select><br>
+
+   Descripción dinámica 
+  <div id="descripcion" class="descripcion" style="display: none;"></div>
+
+   Fecha de inicio 
+  <label for="start">Fecha de inicio:</label><br>
+  <input type="date" id="start"><br>
+
+   Duración del riego 
+  <label for="duracion">Duración del riego (minutos):</label><br>
+ <input type="number" id="duracion" min="1" max="120" value="20"><br>
+
+   Botones 
+  <button onclick="generarCalendario()">Generar calendario</button>
+  <button onclick="window.print()">📄 Imprimir o Exportar a PDF</button>
+
+  
+
+   Calendario 
+  <div id="calendar"></div>
+<script>
+    
+    // INICIO MENU
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+//FIN MENU
+
+const plantas = {
+  tomate: {
+    frecuencia: 12,
+    hora: "06:00",
+    descripcion: "🌱 El tomate necesita riego constante cada 12 horas. Riega temprano en la mañana y al atardecer para evitar la evaporación.",
+  },
+  cactus: {
+    frecuencia: 72,
+    hora: "08:00",
+    descripcion: "🌵 El cactus requiere muy poca agua. Riega cada 3 días (72h) y asegúrate de que el suelo esté seco antes de regar de nuevo.",
+  },
+  albahaca: {
+    frecuencia: 24,
+    hora: "07:00",
+    descripcion: "🌿 La albahaca necesita riego diario, idealmente por la mañana. No mojes las hojas para evitar hongos.",
+  },
+};
+
+let calendar;
+
+document.addEventListener('DOMContentLoaded', function () {
+  const calendarEl = document.getElementById('calendar');
+  calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    locale: 'es',
+    height: 'auto', 
+    events: []
+  });
+  calendar.render();
+});
+
+function mostrarDescripcion() {
+  const planta = document.getElementById('plant').value;
+  const descripcionDiv = document.getElementById('descripcion');
+
+  if (plantas[planta]) {
+    descripcionDiv.innerText = plantas[planta].descripcion;
+    descripcionDiv.style.display = 'block';
+  } else {
+    descripcionDiv.style.display = 'none';
+  }
+}
+
+function generarCalendario() {
+  const planta = document.getElementById('plant').value;
+  const startDateStr = document.getElementById('start').value;
+  const duracion = parseInt(document.getElementById('duracion').value);
+
+  if (!planta || !startDateStr || isNaN(duracion)) {
+    alert("Por favor, elige una planta, fecha de inicio y duración válida.");
+    return;
+  }
+
+  const plan = plantas[planta];
+  const frecuenciaHoras = plan.frecuencia;
+  const horaRiego = plan.hora;
+  const eventos = 10;
+
+  const eventosRiego = [];
+
+  const [anio, mes, dia] = startDateStr.split("-");
+  const [hora, minuto] = horaRiego.split(":");
+  const startDate = new Date(anio, mes - 1, dia, hora, minuto);
+
+  for (let i = 0; i < eventos; i++) {
+    const inicio = new Date(startDate.getTime() + i * frecuenciaHoras * 60 * 60 * 1000);
+    const fin = new Date(inicio.getTime() + duracion * 60000);
+
+    eventosRiego.push({
+      title: `Riego ${planta} (${duracion} min)`,
+      start: inicio.toISOString(),
+      end: fin.toISOString()
+    });
+  }
+
+  calendar.removeAllEvents();
+  eventosRiego.forEach(evento => calendar.addEvent(evento));
+}
+</script>
+   
+</body>
+</html> 
